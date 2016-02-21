@@ -1,0 +1,20 @@
+Google Maps JavaScript API Guide:
+https://developers.google.com/maps/documentation/javascript/tutorial
+
+Google Maps JavaSCript API key: AIzaSyA9oONZSCQ73YSOdRI235OUVVFLzKVtcTs
+
+More info:
+https://console.developers.google.com/apis/credentials/key/0?project=deft-strata-121601
+
+
+Distance Matrix:
+https://developers.google.com/maps/documentation/javascript/examples/distance-matrix
+
+Directions Service:
+https://developers.google.com/maps/documentation/javascript/examples/directions-simple
+
+
+
+To do:
+- Figure out how to give exact step by step directions
+- Provide amount of time it'll take, and "if you drive x hours a day, you'll get there in y days"
