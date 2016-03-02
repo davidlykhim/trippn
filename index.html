@@ -14,11 +14,11 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
 		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
   		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     	<script src="js/main.js"></script>	
+
 	</head>
 
 	<body>
@@ -30,8 +30,8 @@
 				<h2>Trip planning made easy. Don't trip.</h2>
 				<nav id="navigation">
 					<ul>
-						<li><a href="#">Your Trips</a></li><!--
-						--><li><a href="#">Invite a Friend</a></li><!--
+						<li><a class="nope" href="#">Your Trips</a></li><!--
+						--><li><a class="nope" href="#">Invite a Friend</a></li><!--
 						--><li><a id="about" href="#">About</a></li>
 					</ul>
 				</nav>
@@ -39,18 +39,16 @@
 
 			<div id="userTrip">
 
-				<!--  DO THIS STUFF LATER
-
-				<nav id="options">
-					<ul>
-						<li><a href="#">Popular</a></li>
-						<li><a href="#">Trending</a></li>
-						</ul>
-				</nav> 		-->
-
 				<div id="createTrip">
 					<input id="start" class="controls" placeholder="Where are you?" value="Los Angeles" type="text"/>
 					<input id="end" class="controls"  placeholder="Where are you headed?" value="Boston" type="text"/>
+					<select id="mode">
+					  <option disabled selected>Method of travel</option>
+					  <option value="DRIVING">Driving</option>
+					  <option value="WALKING">Walking</option>
+					  <option value="BICYCLING">Bicycling</option>
+					  <option value="TRANSIT">Transit</option>
+					</select>
 	    			<input id="go" type="submit" value="GO" />
 
 					<p id="tripResult"></p>	
@@ -58,72 +56,38 @@
 
 				<div id="output"></div>
 
-				<!-- DO THIS STUFF LATER / MAY REMOVE
+				<div id="directions"></div>
 
-				<div id="suggestions">
-					<h3>Suggestions</h3>
-					<article class="locationCard">
-						<img src="images/london.jpg">
-						<h4 class="locationName">New York</h4>
-						<p class="locationDesc">Beautiful New York.</p>
-					</article>
-					<article class="locationCard">
-						<img src="images/tokyo.jpg">
-						<h4 class="locationName">Los Angeles</h4>
-						<p class="locationDesc">Beautiful Los Angeles.</p>
-					</article>
-					<article class="locationCard">
-						<img src="images/london.jpg">
-						<h4 class="locationName">San Diego</h4>
-						<p class="locationDesc">Beautiful San Diego.</p>
-					</article>
-				</div>
-
-				-->
 			</div> <!-- END userTrip -->
 
 			<div id="map"></div>
-
-<!--
-			<div id="dialog-message" title="Download complete">
-				<p>
-				  <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-				  Your files have downloaded successfully into the My Downloads folder.
-				</p>
-				<p>
-				  Currently using <b>36% of your storage space</b>.
-				</p>
-			</div>
--->
-
 			<div id="overlay"></div>
 			<div id="popup">
-			    <p><i id="x" class="fa fa-times-circle-o fa-2x"></i></p>
+			    <p><i id="x-about" class="fa fa-times-circle-o fa-2x"></i></p>
 			    <h2>About Trippn</h2>
-			    <p>TRIPPN is a project by <strong><a href="http://davidlykhim.com" target="_blank">David Ly Khim</a></strong> for General Assembly's Front-End Web Development course. This project may or may not be finished.</p>
-			    <p>Other places you can find David</p>
+			    <p>What's up. I'm <strong><a href="http://davidlykhim.com?utm_source=trippin&utm_medium=referral" target="_blank">David Ly Khim</a></strong>. TRIPPN is my front-end web development project for General Assembly - Boston. This project may or may not be finished.</p>
+			    <p>Other places you can find me:</p>
 			    <p>
 			    	<a href="http://davidlykhim.com?utm_source=trippin&utm_medium=referral" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
 			    	<a href="http://facebook.com/davidlykhim" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
 			    	<a href="http://twitter.com/davidlykhim" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
 			    	<a href="http://linkedin.com/in/davidlykhim" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
 			    </p>
-			    <!-- <input id="close" type="submit" value="CLOSE" /> -->
 			</div>
 
-			<!--
-			<footer>
-				<nav>
-					<ul>
-						<li><a href="#">Your Trips</a></li>
-						<li><a href="#">Invite a Friend</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">About</a></li>
-					</ul>
-				</nav>
-				
-			</footer>
-			-->
+			<div id="sorry">
+				<p><i id="x-sorry" class="fa fa-times-circle-o fa-2x"></i></p>
+				<h2>Whoops, sorry!</h2>
+				<p>(Not sorry.)</p>
+				<p>That feature hasn't been built. Chill. It's a prototype. Wanna see more from me? Visit <a href="http://davidlykhim.com?utm_source=trippin&utm_medium=referral">davidlykhim.com</a> or click on any of the links below.</p>
+				<p>
+			    	<a href="http://davidlykhim.com?utm_source=trippin&utm_medium=referral" target="_blank"><i class="fa fa-heart-o fa-2x"></i></a>
+			    	<a href="http://facebook.com/davidlykhim" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+			    	<a href="http://twitter.com/davidlykhim" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+			    	<a href="http://linkedin.com/in/davidlykhim" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+			    </p>
+			</div>
+
 
 		</div><!-- #container --> 
 

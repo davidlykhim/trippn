@@ -1,0 +1,19 @@
+{
+  "request": {
+    "passengers": {
+      "adultCount": 1
+    },
+    "slice": [
+      {
+        "origin": "BOS",
+        "destination": "LAX",
+        "date": "YYYY-MM-DD"
+      },
+      {
+        "origin": "LAX",
+        "destination": "BOS",
+        "date": "YYYY-MM-DD"
+      }
+    ]
+  }
+}

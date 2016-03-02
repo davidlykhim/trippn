@@ -92,7 +92,7 @@ footer {
     z-index:99999;   
 }
 
-#popup {
+#popup, #sorry {
     display:none;
     position:fixed;
     left:50%;        
@@ -106,15 +106,8 @@ footer {
     z-index:100000;      
 }
 
-.fa-times-circle-o {
-     float:right;
-     top:10px;
-     right:10px;
-     position:absolute;
-}
-
-.fa {
-     padding:10px;
+.show {
+    display:block;
 }
 
 /******************************************
@@ -154,7 +147,7 @@ h3 {
      font-size:1.25em;
 }
 
-#createTrip h3, #popup h2 {
+#createTrip h3, #popup h2, #sorry h2 {
      text-align:center;
 }
 
@@ -162,7 +155,7 @@ h3 {
      margin:16px 0 10px 0;
 }
 
-#popup h2 {
+#popup h2, #sorry h2 {
      font-size:2em;
      text-transform: uppercase;
 }
@@ -181,7 +174,7 @@ p {
      margin-bottom:8px;
 }
 
-#popup p {
+#popup p, #sorry p {
      font-size:1.25em;
 }
 
@@ -201,21 +194,30 @@ a:hover {
     border-bottom: 1px dotted #666;
 }
 
+.fa-times-circle-o {
+     float:right;
+     top:10px;
+     right:10px;
+     position:absolute;
+}
+
+.fa {
+     padding:10px;
+}
+
 /* NAVIGATION */
 
-nav ul, #options ul  {
+nav ul  {
      margin:0;
      padding:0;
 }
 
 #navigation li,
-#options li,
 footer nav li {
      display:inline-block;
 }
 
 #navigation li a,
-#options li a,
 footer nav li a  {
      display:block;
      color:white;
@@ -234,31 +236,8 @@ footer nav li a  {
 }
 
 #navigation li a,
-#navigation li a:hover,
-#options li a, {
+#navigation li a:hover {
      transition:0.3s ease-in-out;
-}
-
-#options li {
-     width:50%;
-     border-right:1px solid #dedede;
-     border-bottom:1px solid #dedede;
-     padding:10px;
-}
-
-#options li:hover {
-     padding:8px;
-     border-bottom:3px solid #333;
-}
-
-#options li:last-child {
-     border-right:0;
-}
-
-#options li a {
-     color:#333;
-     font-size:90%;
-     text-align: center;
 }    
 
 /* MAP AREA */
@@ -282,8 +261,7 @@ footer nav li a  {
 }
 
 
-
-/* CREATE TRIP AREA */
+/* LEFT PANEL */
 
 #userTrip {
      display:block;
@@ -294,15 +272,15 @@ footer nav li a  {
      border-right: 1px solid #dedede;
 }
 
-#createTrip, #suggestions {
-     padding: 50px 30px 0 30px;
-}
-
-
 #createTrip {
+     padding: 50px 30px 0 30px;
      width:100%;
      margin:0 auto;
      padding:2vh 30px;
+}
+
+#directions {
+    padding:10px;
 }
 
 /* INPUT */
@@ -325,6 +303,19 @@ input[type="text"]:focus {
      outline: none;
 }
 
+select {
+     width:100%;
+     font-size:1.25em;
+     height:40px;
+     padding:10px;
+     margin:20px 0 10px 0;
+     border:none;
+}
+
+select:focus {
+    outline:none;
+}
+
 a, a:hover,
 #go, #go:hover,
 #close, #close:hover,
@@ -332,119 +323,101 @@ input[type="text"], input[type="text"]:focus {
      transition:200ms ease-in-out;
 }
 
-#go, #close {
+#go {
      background:#00d8a2;
      color:white;
      border-bottom:2px solid #00a377;
      border-radius:2px;
 }
 
-#go:hover, #close:hover {
+#go:hover {
      background:#00a377;
 }
 
-#close {
-     width:100px;
-     margin-bottom:0;
-
+.mode {
+    text-transform: lowercase;
 }
 
+/* BETWEEN DESKTOP AND TABLET */
 
-/* LOCATION CARDS */
+@media (min-device-width:768px) and (max-width:900px) {
 
-.locationCard {
-     display:block;
-     width:100%;
-     /*height:250px; */
-     border:1px solid #dedede;
-     border-radius:5px;
-     margin:12px auto;
+     #userTrip {
+          width:40%;
+     }
+     #map {
+          width:60%;
+          height:90vh;
+     }
 }
 
-.locationCard img {
-     width:100%;
-     height:75%;
-     border-radius:5px 5px 0 0;
+/* TABLET */
+
+@media (min-width:601px) and (max-width:767px)  {
+
+    #popup, #sorry {
+          width:90%;
+          padding:50px;
+          margin-top:-25%;
+          margin-left:-45%; 
+     }
+     #userTrip {
+          width:40%;
+     }
+     #map {
+          width:60%;
+          height:90vh;
+     }
+     #userTrip {
+          height:auto;
+          border-right: 1px solid #dedede;
+     }
+     #navigation li a {
+          text-align: center;   
+     }
 }
-
-.locationName, .locationDesc {
-     margin:0;
-}
-
-.locationName {
-     padding: 10px 10px 2px 15px;
-}
-
-.locationDesc {
-     padding: 2px 10px 10px 15px;
-}
-
-
 
 /* MOBILE */
 
+@media only screen and (max-width:600px) {
 
-@media only screen and (max-width:768px) {
-
-     #popup {
+     #popup, #sorry {
           width:90%;
           padding:50px;
           margin-top:-65%;
           margin-left:-45%; 
      }
-
      #userTrip, #map {
           width:100%;
           max-width: 100%;
      }
-
      #userTrip {
           height:auto;
           border-right: 1px solid #dedede;
      }
-
      #map {
           height:90vh;
      }
-
      #navigation {
           float:right;
           margin:0;
      }
-
      #navigation li a {
           width:30vw;
           text-align: center;
           padding: 16px 5px;
      }
-
      #navigation li:last-child, #navigation li:nth-child(3) {
           display:none;
      }
-
-     #options {
-          float:none;
-          margin:0;
-     }
-
-     header h1, header h2 {
-          text-align: center;
-          margin:0;
-     }
-
      header h1 {
+          text-align: center;
           display:inline-block;
           width:30vw;
           padding:7px;
+          margin:0;
           margin-left:2vw;
      }
-
-     .locationCard {
-          width:47%;
-          float:left;
-          margin:1.5%;
-     }
-
 }
 
 
