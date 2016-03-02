@@ -1,4 +1,8 @@
 # trippn
 Travel planning app. GA FEWD final project.
 
-Project.
+To view:
+
+1. Download as .zip
+2. Unzip file
+3. Open index.html file in browser.
